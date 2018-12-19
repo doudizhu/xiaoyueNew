@@ -1,0 +1,9 @@
+mixin head(css,title)
+    meta(charset="UTF-8")
+    meta(name='viewport', content='width=device-width,user-scalable=no,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0')
+    if title
+        title= title
+    else
+        title 道口贷
+    if css
+        link(rel='stylesheet' href='/dist/css/pages/'+css+'.css?v=${initParam.timestamp}')

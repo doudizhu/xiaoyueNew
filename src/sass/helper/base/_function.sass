@@ -1,0 +1,16 @@
+// I.common
+// 1.opacity
+@mixin opacity($alpah: 0.8)
+	opacity: $alpah
+	filter: alpha(opacity=$alpah*100)
+
+// II.Component
+// 1.equal division
+
+@mixin verticalDevideEqual($num: 2)
+	display: inline-block
+	width: 100%*(1/$num)
+	vertical-align: top
+	box-sizing: border-box
+
+// III. Layout

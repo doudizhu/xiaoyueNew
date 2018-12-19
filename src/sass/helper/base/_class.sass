@@ -1,0 +1,109 @@
+// I.common
+// 1.hide
+.hiding
+  display: none !important
+
+// 2.clear Space
+%clearSpace
+  font-size: 0
+  &>*
+    font-size: 1rem
+  
+
+// 3.text-justify
+%text-justify
+  text-align: justify
+  text-align-last: justify
+  //Firefox
+  -moz-text-align-last: justify
+
+  &>span
+    display: inline-block
+    text-align-last: auto
+    //Firefox
+    -moz-text-align-last: auto
+  
+
+  // mobile & old browser
+  &:after
+    display: inline-block
+    width: 100%
+    content: ""
+  
+
+  @extend %clearSpace
+
+// 3.1 justify clear
+%justifyFixed
+  font-size: 0
+  &>span
+    font-size: 1rem
+  
+
+// 4.transfrom 垂直居中
+// 需要父元素为非静态定位，不兼容ie8及以下（ie9仅支持-ms-transform）
+%verticalMiddleTransfrom
+  position: absolute !important
+  top: 50%
+  transform: translateY(-50%)
+  // 兼容安卓4.3及以下
+  -webkit-transform: translateY(-50%)
+
+// 链接
+%link
+  color: $purple
+  text-decoration: none
+  &:hover
+    text-decoration: underline
+  
+
+// 5.clear float
+$lte7 : true
+%clearFloat
+  @if $lte7 
+    zoom: 1
+  
+  &:after
+    clear: both
+    display: block
+    content: 'clear'
+    line-height: 0
+    visibility: hidden
+  
+
+// 6.text
+.text-center
+  text-align: center
+
+.text-right
+  text-align: right
+
+
+// II.component
+// 1.display table模拟表格
+// 1)dl list
+%dl-table 
+  display: table
+  // display: inline-table
+  &>*
+    display: table-cell
+  
+  &>*:first-child
+    white-space: nowrap
+    vertical-align: baseline
+  
+
+// 2)input table
+%input-table
+  display: table
+  &>input
+    display: table-cell
+    width: 100%
+    vertical-align: middle
+  
+  &>span,
+  &>a,
+  &>label
+    display: table-cell
+    width: 1%
+    white-space: nowrap
