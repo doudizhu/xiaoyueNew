@@ -1,0 +1,19 @@
+doctype html
+html
+	head
+		include  ../common/fragment/_head
+		+head('demo/login','登录')
+	body
+		form(method='post')
+			p
+				label(for='id_username') Username:
+				input#id_username(type='text', name='username')
+			p
+				label(for='id_password') Password:
+				input#id_password(type='password', name='password')
+			div
+				input(type='submit', value='ok')
+
+
+		//- include  ../common/fragment/_script
+		//- +script('demo')
